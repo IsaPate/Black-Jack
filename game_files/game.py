@@ -46,10 +46,12 @@ class Game :
             print("=============================================")
             
             playerCount = self._playerCountRoutine(dealer , shuffled)
+
             if len(playerCount) == 0 : 
                 self.winners.append(dealer.name)
                 return self.winners
             dealerCounter = self._dealerCountRoutine(dealer , shuffled)
+            
             print(f"Dealer counter {dealerCounter}")
             if dealerCounter >= 21 :
                 if len(playerCount) == 1 :
@@ -83,8 +85,10 @@ class Game :
         mapObject.setCards(removed)
         print(f"{mapObject.name} cards")
         mapObject.showCards()
+    
     def addPlayers ( self , player : Player) -> None:
         self.players.append(player)
+    
     def _playerCountRoutine (self, dealer : Dealer  , shuffled : list[Card]) -> list[tuple]:
         countForEveryPlayer : list[tuple]= []
 
@@ -101,7 +105,7 @@ class Game :
                 counter = player.countValues(player.getsCards())
                 
                 print(f"{counter} < 21")
-
+                print("=============================================")
                 if counter > 17 and counter <= 20 : 
                     stop = True
 
