@@ -28,10 +28,10 @@ class Game :
 
             print(f"Game begin with {len(self.players)} Players and 1 Dealer.")
             shuffled = dealer.shuffle()
-            self.firstCardInit(dealer , None , 2  , shuffled)
+            self.fillPlayerCardDeck(dealer , None , 2  , shuffled)
 
             for pl in self.players :
-                self.firstCardInit(dealer , pl , 2 , shuffled)
+                self.fillPlayerCardDeck(dealer , pl , 2 , shuffled)
 
             print("=============================================")
             print(len(shuffled))
@@ -79,7 +79,7 @@ class Game :
                         else :
                          self.winners.append(pl[0])
             return self.winners
-    def firstCardInit (self , dealer : Dealer  , player : Player , numOfCards , shuffled : list[Card]) :
+    def fillPlayerCardDeck (self , dealer : Dealer  , player : Player , numOfCards , shuffled : list[Card]) :
         mapObject = dealer if player == None else player
         removed = dealer.share(numOfCards , shuffled)
         mapObject.setCards(removed)
