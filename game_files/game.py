@@ -128,5 +128,3 @@ class Game :
             if dealerCounter == 21 or (dealerCounter > 17 and dealerCounter <= 20) :
                 break
          return dealerCounter
-        
-    pass
