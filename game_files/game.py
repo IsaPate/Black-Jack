@@ -119,6 +119,7 @@ class Game :
             playerTuple = (player.name , counter)
             countForEveryPlayer.append(playerTuple)
         return countForEveryPlayer
+    
     def _dealerCountRoutine (self , dealer:Dealer , shuffled : list[Card]):
          dealerCounter = dealer.countValues(dealer.getsCards())
          while dealerCounter <= 17 :
