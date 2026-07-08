@@ -1,5 +1,4 @@
-from game_files.deck import *
-from game_files.game import *
+from game_files.game import Game
                 
 def main():
     game = Game()         
@@ -8,5 +7,5 @@ def main():
 
 if ( __name__ == "__main__"):
     winners = main()
-    for w in winners :
-        print(w)
+    for winnerTuple in winners :
+        print(f"Winner : {winnerTuple[0]} with count {winnerTuple[1]}")
