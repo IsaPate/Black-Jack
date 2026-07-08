@@ -1,4 +1,4 @@
-from game_files.deck import Deck , Player , Dealer
+from game_files.deck import *
 from game_files.game import *
                 
 def main():
