@@ -38,8 +38,8 @@ class Deck :
         
     def shuffleDeck (self ,initialized : list[Card]) -> list[Card] :
         result : list[Card] = []
+        last = -1 
         while len(result) < 52 : 
-            last = -1 
             index = random.randint(0,51)
             if index == last : continue
             card = initialized[index]
