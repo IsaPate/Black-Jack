@@ -1,21 +1,33 @@
 from game_files.deck import *
 from game_files.player import *
+
 class Game :
     def __init__(self):
        self.players : list[Player] = []
        self.winners : list[Player] = []
     
+    def loadPlayers (self) :
+        try:
+            numberOfPlayers = int(input("Type the number of players"))
+        except (ValueError, TypeError) as e:
+            raise e
+        
+        for i in range( numberOfPlayers ):
+            created = self._createPlayer()
+            self.players.append(created)
+
+    def _createPlayer (self) -> Player :
+        name = input("Type your name.")
+        return Player(name)
+
     def begin(self) -> list[Player] :
         while True :
-            player1 = Player("Akis")
-            player2 = Player("George")
-            self.addPlayers(player1)
-            self.addPlayers(player2)
+
+            self.loadPlayers()
             dealer = Dealer("Mr Kostas")
 
             print(f"Game begin with {len(self.players)} Players and 1 Dealer.")
             shuffled = dealer.shuffle()
-            
             self.firstCardInit(dealer , None , 2  , shuffled)
 
             for pl in self.players :
